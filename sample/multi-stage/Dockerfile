@@ -12,7 +12,7 @@ RUN cp -r out/* /usr/share/nginx/html/
 
 FROM redhat/ubi10
 RUN curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
-RUN dnf install nginx unzip nodejs -y
+RUN dnf install nginx -y
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
 EXPOSE 80
 COPY --from=builder /tmp/out/ /usr/share/nginx/html
